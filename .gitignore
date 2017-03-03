@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore coveralls info
+/coverage
+
+# Ignore env
+.env

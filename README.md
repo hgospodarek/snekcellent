@@ -1,3 +1,6 @@
+![Build Status](https://circleci.com/gh/hgospodarek/snekcellent.png?circle-token=:circle-token)
+![Code Climate](https://codeclimate.com/github/hgospodarek/snekcellent.png)
+![Coverage Status](https://coveralls.io/repos/hgospodarek/snekcellent/badge.png)
 # ==README for Future Me:
 
 ## Snekcellent
