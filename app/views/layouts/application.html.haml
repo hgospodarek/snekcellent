@@ -7,10 +7,27 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body.container-fluid#site-container
-    .h1.text-center Snekcellent
-    - if flash[:notice]
-      .alert.alert-info.alert-dismissable.fade.show
-        = flash[:notice]
-    %p.alert= alert
-    = yield
+    %script{src: "https://use.fontawesome.com/3e237d1386.js"}
+  %body
+    .container#content-container
+      #site-title.h1.text-center Snekcellent
+      - if flash[:notice]
+        .alert.alert-info.alert-dismissable.fade.show
+          = flash[:notice]
+      %p.alert= alert
+      = yield
+    #nav.navbar-light.bg-faded
+      .container
+        %ul.nav.nav-pills.nav-justified
+          %li.nav-item
+            %a.nav-link{href: '#'}
+              %i.fa.fa-home.fa-2x{"aria-hidden" => "true"}
+          %li.nav-item
+            %a.nav-link{href: '#'}
+              %i.fa.fa-history.fa-2x{"aria-hidden" => "true"}
+          %li.nav-item
+            %a.nav-link{href: '#'}
+              = image_tag('noun_200416_cc.svg', class: "sneks-nav-link")
+          %li.nav-item
+            %a.nav-link{href: '#'}
+              %i.fa.fa-cogs.fa-2x{"aria-hidden"=> "true"}
