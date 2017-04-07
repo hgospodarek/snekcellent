@@ -31,3 +31,5 @@ end
 
 #TODO look this up more thoroughly; Launch recommends it in their setup but I'm not sure what I need it for yet. Timezone something.
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.4.0"
