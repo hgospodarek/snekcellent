@@ -28,6 +28,10 @@
           %li.nav-item
             %a.nav-link{href: '#'}
               = image_tag('noun_200416_cc.svg', class: "sneks-nav-link")
-          %li.nav-item
-            %a.nav-link{href: '#'}
+          %li.nav-item.dropup
+            %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false",href: "#"}
               %i.fa.fa-cogs.fa-2x{"aria-hidden"=> "true"}
+            .dropdown-menu
+              %a.dropdown-item{href: "#"}
+                Account Settings
+              = link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" if user_signed_in?
