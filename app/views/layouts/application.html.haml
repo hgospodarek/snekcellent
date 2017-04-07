@@ -2,7 +2,7 @@
 %html
   %head
     %meta(charset="utf-8")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, maximum-scale=1")
     %title Snekcellent
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
@@ -36,7 +36,7 @@
                                             "aria-expanded" => "false",
                                             href: "#" }
                 %i.fa.fa-cogs.fa-2x{ "aria-hidden"=> "true" }
-              .dropdown-menu
+              .dropdown-menu.dropdown-menu-right
                 %a.dropdown-item{ href: "#" }
                   Account Settings
                 = link_to 'Sign out', destroy_user_session_path,
