@@ -27,8 +27,7 @@
               %a.nav-link{href: '#'}
                 %i.fa.fa-history.fa-2x{ "aria-hidden" => "true" }
             %li.nav-item
-              %a.nav-link{ href: '#' }
-                = image_tag('noun_200416_cc.svg', class: "sneks-nav-link")
+              =link_to image_tag('noun_200416_cc.svg', class: "sneks-nav-link"), sneks_path, class: "nav-link"
             %li.nav-item.dropup
               %a.nav-link.dropdown-toggle{ "data-toggle" => "dropdown",
                                             role: "button",
