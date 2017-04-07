@@ -21,8 +21,8 @@
         .container
           %ul.nav.nav-pills.nav-justified
             %li.nav-item
-              %a.nav-link{ href: '#' }
-                %i.fa.fa-home.fa-2x{ "aria-hidden" => "true" }
+              = link_to root_path, class: "nav-link" do
+                %i.fa.fa-pencil-square-o.fa-2x{ "aria-hidden" => "true" }
             %li.nav-item
               %a.nav-link{href: '#'}
                 %i.fa.fa-history.fa-2x{ "aria-hidden" => "true" }
