@@ -9,7 +9,7 @@
     = csrf_meta_tags
   %body.container-fluid
     .h1.text-center Snekcellent
-    -if flash[:notice]
+    - if flash[:notice]
       .alert.alert-info.alert-dismissable.fade.show
         = flash[:notice]
     %p.alert= alert
