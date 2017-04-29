@@ -9,12 +9,17 @@
     = csrf_meta_tags
     %script{ src: "https://use.fontawesome.com/3e237d1386.js" }
   %body
+    .navbar.navbar-inverse.bg-inverse#top-bar
+      =link_to 'Snekcellent', root_path, class: "navbar-brand mb-0 text-center"
     .container#content-container
-      .h1.text-center#site-title Snekcellent
       - if flash[:notice]
         .alert.alert-info.alert-dismissable.fade.show
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true" } &times;
           = flash[:notice]
-      %p.alert= alert
+      - if flash[:alert]
+        .alert.alert-warning.alert-dismissable.fade.show
+          = flash[:alert]
       = yield
     - if user_signed_in?
       %nav.navbar-light.bg-faded
