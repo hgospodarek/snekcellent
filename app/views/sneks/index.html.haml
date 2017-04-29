@@ -1,1 +1,38 @@
-%h1 Your Sneks
+%h3.page-title Your Sneks
+.row
+  - if @sneks.empty?
+    %p You have no sneks!
+  - else
+    - @sneks.each do |snek|
+      .col-5.mb-3
+        = link_to snek do
+          .card.text-center.card-button
+            .card-block
+              .card-title= snek.name
+  .col-5.mb-3
+    .card.text-center.card-button#new-snek{"data-toggle" => "modal", "data-target" => "#newSnekForm"}
+      .card-block
+        .card-title +1 Snek!
+
+-# TODO: break this into a partial
+.modal.fade#newSnekForm{"aria-hidden" => "true"}
+  .modal-dialog.modal-lg
+    .modal-content
+      = form_for @snek, url: { controller: "sneks", action: "create" } do |f|
+        .modal-header
+          %h5.modal-title
+            New Snek
+          %button.close{"type" => "button", "data-dismiss" => "modal", "aria-label" => "Close"}
+            %span{"aria-hidden" => "true"} &times;
+        .modal-body
+          .form
+            .form-group
+              = f.label :name, { class: "form-control-label "}
+              = f.text_field :name, { class: "form-control" }
+              = f.label :age, { class: "form-control-label" }
+              = f.number_field :age, { class: "form-control" }
+              = f.label :adoption_date, { class: "form-control-label" }
+              = f.date_field :adoption_date, { class: "form-control" }
+        .modal-footer
+          %button{ class: "btn btn-secondary", "data-dismiss" => "modal"} Close
+          = f.submit 'Add snek', { class: "btn btn-primary" }
