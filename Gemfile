@@ -23,11 +23,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'selenium-webdriver'
 end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'capybara-screenshot'
+  gem 'orderly'
 end
 
 #TODO look this up more thoroughly; Launch recommends it in their setup but I'm not sure what I need it for yet. Timezone something.
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
