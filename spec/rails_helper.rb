@@ -9,7 +9,7 @@ require 'factory_girl_rails'
 require 'capybara/rails'
 require 'capybara-screenshot/rspec'
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 Capybara.asset_host = 'http://localhost:3000'

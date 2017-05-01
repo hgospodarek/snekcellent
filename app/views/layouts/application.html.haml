@@ -14,8 +14,8 @@
     .container#content-container
       - if flash[:notice]
         .alert.alert-info.alert-dismissable.fade.show
-          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-            %span{"aria-hidden" => "true" } &times;
+          %button.close{ "aria-label" => "Close", "data-dismiss" => "alert", :type => "button" }
+            %span{ "aria-hidden" => "true" } &times;
           = flash[:notice]
       - if flash[:alert]
         .alert.alert-warning.alert-dismissable.fade.show
@@ -32,7 +32,7 @@
               %a.nav-link{href: '#'}
                 %i.fa.fa-history.fa-2x{ "aria-hidden" => "true" }
             %li.nav-item
-              =link_to image_tag('noun_200416_cc.svg', class: "sneks-nav-link"), sneks_path, class: "nav-link"
+              = link_to image_tag('noun_200416_cc.svg', class: "sneks-nav-link"), sneks_path, class: "nav-link"
             %li.nav-item.dropup
               %a.nav-link.dropdown-toggle{ "data-toggle" => "dropdown",
                                             role: "button",

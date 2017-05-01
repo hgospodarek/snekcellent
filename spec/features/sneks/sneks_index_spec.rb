@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user views the sneks index', %Q{
+feature 'user views the sneks index', %{
   As a user
   I want to see a list of all my sneks
   Because I have sneks
