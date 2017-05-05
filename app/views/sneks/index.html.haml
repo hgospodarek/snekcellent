@@ -34,12 +34,12 @@
               Sex
               %br
               %label.custom-control.custom-radio
-                %input#snek_sex_male.custom-control-input{name: 'snek[sex]', value: 'Male', type: 'radio'}
+                %input.custom-control-input#snek_sex_male{ name: 'snek[sex]', value: 'Male', type: 'radio' }
                 %span.custom-control-indicator
                 %span.custom-control-description Male
 
               %label.custom-control.custom-radio
-                %input#snek_sex_female.custom-control-input{name: 'snek[sex]', value: 'Female', type: 'radio'}
+                %input.custom-control-input#snek_sex_female{ name: 'snek[sex]', value: 'Female', type: 'radio' }
                 %span.custom-control-indicator
                 %span.custom-control-description Female
               %br
@@ -56,5 +56,5 @@
               = f.date_field :adoption_date, { class: "form-control" }
 
         .modal-footer
-          %button{ class: "btn btn-secondary", "data-dismiss" => "modal" } Close
+          %button.btn.btn-secondary{ "data-dismiss" => "modal" } Close
           = f.submit 'Add snek', { class: "btn btn-primary" }

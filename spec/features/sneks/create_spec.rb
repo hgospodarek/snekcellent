@@ -32,7 +32,7 @@ feature 'user creates a new snek', %{
     expect(page).to have_content('Species: Mexican Black Kingsnake')
   end
 
-  scenario 'user must provide name to create a snek', :js  do
+  scenario 'user must provide name to create a snek', :js do
     dood = create(:user)
     login_as(dood)
     visit sneks_path
@@ -43,7 +43,7 @@ feature 'user creates a new snek', %{
     expect(page).to have_selector("input[id='snek_name'][required]")
   end
 
-  scenario 'age, sex, species, morph, and adoption date are optional', :js  do
+  scenario 'age, sex, species, morph, and adoption date are optional', :js do
     dood = create(:user)
     login_as(dood)
     visit sneks_path
