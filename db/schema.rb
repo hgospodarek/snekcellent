@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303170205) do
+ActiveRecord::Schema.define(version: 20170407184352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sneks", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "species"
+    t.string   "morph"
+    t.string   "sex"
+    t.integer  "age"
+    t.date     "adoption_date"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_sneks_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -9,26 +9,30 @@
     = csrf_meta_tags
     %script{ src: "https://use.fontawesome.com/3e237d1386.js" }
   %body
+    .navbar.navbar-inverse.bg-inverse#top-bar
+      = link_to 'Snekcellent', root_path, class: "navbar-brand mb-0 text-center"
     .container#content-container
-      .h1.text-center#site-title Snekcellent
       - if flash[:notice]
         .alert.alert-info.alert-dismissable.fade.show
+          %button.close{ "aria-label" => "Close", "data-dismiss" => "alert", :type => "button" }
+            %span{ "aria-hidden" => "true" } &times;
           = flash[:notice]
-      %p.alert= alert
+      - if flash[:alert]
+        .alert.alert-warning.alert-dismissable.fade.show
+          = flash[:alert]
       = yield
     - if user_signed_in?
       %nav.navbar-light.bg-faded
         .container
           %ul.nav.nav-pills.nav-justified
             %li.nav-item
-              %a.nav-link{ href: '#' }
-                %i.fa.fa-home.fa-2x{ "aria-hidden" => "true" }
+              = link_to root_path, class: "nav-link" do
+                %i.fa.fa-pencil-square-o.fa-2x{ "aria-hidden" => "true" }
             %li.nav-item
               %a.nav-link{href: '#'}
                 %i.fa.fa-history.fa-2x{ "aria-hidden" => "true" }
             %li.nav-item
-              %a.nav-link{ href: '#' }
-                = image_tag('noun_200416_cc.svg', class: "sneks-nav-link")
+              = link_to image_tag('noun_200416_cc.svg', class: "sneks-nav-link"), sneks_path, class: "nav-link"
             %li.nav-item.dropup
               %a.nav-link.dropdown-toggle{ "data-toggle" => "dropdown",
                                             role: "button",
