@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require 'capybara/rails'
 require 'capybara-screenshot/rspec'
+require 'database_cleaner'
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
@@ -42,7 +43,8 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+ # or to use Warden test helpers, set this to false
+  config.use_transactional_fixtures = false
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -66,11 +68,18 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
+
   config.before :suite do
+    DatabaseCleaner.strategy = :truncation
     Warden.test_mode!
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
   end
 
   config.after :each do
     Warden.test_reset!
+    DatabaseCleaner.clean
   end
 end

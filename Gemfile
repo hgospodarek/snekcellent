@@ -29,6 +29,7 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'capybara-screenshot'
+  gem 'database_cleaner'
   gem 'orderly'
 end
 
