@@ -12,12 +12,18 @@ class SneksController < ApplicationController
     if @snek.save
       redirect_to @snek, notice: "#{@snek.name} succsessssfully created."
     else
-      render action: 'index', error: "Oh heck we fucked up."
+      redirect_to :index, error: "Oh heck we fucked up."
     end
   end
 
   def show
     @snek = Snek.find(params[:id])
+  end
+
+  def destroy
+    @snek = Snek.find(params[:id])
+    @snek.destroy
+    redirect_to index, notice: "Removed :("
   end
 
   private
