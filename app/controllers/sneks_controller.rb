@@ -12,7 +12,7 @@ class SneksController < ApplicationController
     if @snek.save
       redirect_to @snek, notice: "#{@snek.name} succsessssfully created."
     else
-      render action: 'index', error: "There were troubles creating your snek, please try again."
+      render action: 'index', error: "Oh heck we fucked up."
     end
   end
 
@@ -23,6 +23,6 @@ class SneksController < ApplicationController
   private
 
   def snek_params
-    params.require(:snek).permit(:name, :age, :adoption_date)
+    params.require(:snek).permit(:name, :sex, :age, :species, :morph, :adoption_date)
   end
 end

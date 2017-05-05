@@ -1,14 +1,15 @@
 %h3.page-title Your Sneks
-.row
-  - if @sneks.empty?
-    %p You have no sneks!
-  - else
+- if !@sneks.present?
+  %p You have no sneks!
+- else
+  .row
     - @sneks.each do |snek|
       .col-5.mb-3
         = link_to snek do
           .card.text-center.card-button
             .card-block
               .card-title= snek.name
+.row
   .col-5.mb-3
     .card.text-center.card-button#new-snek{ "data-toggle" => "modal", "data-target" => "#newSnekForm" }
       .card-block
@@ -21,18 +22,39 @@
       = form_for @snek, url: { controller: "sneks", action: "create" } do |f|
         .modal-header
           %h5.modal-title
-            New Snek
+            Tell me ’bout your snek
           %button.close{ "type" => "button", "data-dismiss" => "modal", "aria-label" => "Close" }
             %span{ "aria-hidden" => "true" } &times;
         .modal-body
           .form
             .form-group
-              = f.label :name, { class: "form-control-label "}
-              = f.text_field :name, { class: "form-control" }
+              = f.label :name, { class: "form-control-label"}
+              = f.text_field :name, { class: "form-control", required: "true", oninvalid: "this.setCustomValidity('Name yer snek, dood.')"}
+
+              Sex
+              %br
+              %label.custom-control.custom-radio
+                %input#snek_sex_male.custom-control-input{name: 'snek[sex]', value: 'Male', type: 'radio'}
+                %span.custom-control-indicator
+                %span.custom-control-description Male
+
+              %label.custom-control.custom-radio
+                %input#snek_sex_female.custom-control-input{name: 'snek[sex]', value: 'Female', type: 'radio'}
+                %span.custom-control-indicator
+                %span.custom-control-description Female
+              %br
               = f.label :age, { class: "form-control-label" }
               = f.number_field :age, { class: "form-control" }
-              = f.label :adoption_date, { class: "form-control-label" }
+
+              = f.label :species, { class: "form-control-label" }
+              = f.text_field :species, { class: "form-control" }
+
+              = f.label :morph, { class: "form-control-label" }
+              = f.text_field :morph, { class: "form-control" }
+
+              = f.label :adoption_date, 'Adoption Date', { class: "form-control-label" }
               = f.date_field :adoption_date, { class: "form-control" }
+
         .modal-footer
           %button{ class: "btn btn-secondary", "data-dismiss" => "modal" } Close
           = f.submit 'Add snek', { class: "btn btn-primary" }

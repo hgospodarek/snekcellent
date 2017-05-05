@@ -2,6 +2,7 @@ class CreateSneks < ActiveRecord::Migration[5.0]
   def change
     create_table :sneks do |t|
       t.string :name, null: false
+      t.string :species
       t.string :morph
       t.string :sex
       t.integer :age

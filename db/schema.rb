@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170407184352) do
 
   create_table "sneks", force: :cascade do |t|
     t.string   "name",          null: false
+    t.string   "species"
     t.string   "morph"
     t.string   "sex"
     t.integer  "age"

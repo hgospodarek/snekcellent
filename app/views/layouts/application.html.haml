@@ -10,7 +10,7 @@
     %script{ src: "https://use.fontawesome.com/3e237d1386.js" }
   %body
     .navbar.navbar-inverse.bg-inverse#top-bar
-      =link_to 'Snekcellent', root_path, class: "navbar-brand mb-0 text-center"
+      = link_to 'Snekcellent', root_path, class: "navbar-brand mb-0 text-center"
     .container#content-container
       - if flash[:notice]
         .alert.alert-info.alert-dismissable.fade.show
