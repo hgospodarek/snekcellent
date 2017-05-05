@@ -1,5 +1,5 @@
 %h3.page-title Your Sneks
-- if !@sneks.present?
+- if @sneks.empty?
   %p You have no sneks!
 - else
   .row

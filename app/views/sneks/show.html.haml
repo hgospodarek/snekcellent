@@ -5,3 +5,5 @@
 %h5= "Species: #{@snek.species}"
 %h5= "Morph: #{@snek.morph}"
 %h5= "Adoption Date: #{@snek.adoption_date}"
+
+= link_to 'Remove Snek', snek_path(@snek), method: :delete, data: { confirm: "OH GAWD WHY? ARE YOU SURE? YOU CAN'T UNDO THIS, DOOD."}, class: "btn btn-danger"
