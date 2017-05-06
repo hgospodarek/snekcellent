@@ -1,9 +1,14 @@
-%h3.page-title= @snek.name
+%h3.page-title.text-center= @snek.name
 
-%h5= "Age: #{@snek.age}"
+%h5 Age
+= "#{@snek.age}"
 %h5= "Sex: #{@snek.sex}"
 %h5= "Species: #{@snek.species}"
 %h5= "Morph: #{@snek.morph}"
 %h5= "Adoption Date: #{@snek.adoption_date}"
 
-= link_to 'Remove Snek', snek_path(@snek), method: :delete, data: { confirm: "OH GAWD WHY? ARE YOU SURE? YOU CAN'T UNDO THIS, DOOD."}, class: "btn btn-danger"
+%button.btn.btn-primary{ "data-toggle" => "modal", "data-target" => "#snekForm" } Edit Snek
+
+= link_to 'Remove Snek', snek_path(@snek), method: :delete, data: { confirm: "OH GAWD WHY? ARE YOU SURE? YOU CAN'T UNDO THIS, DOOD."}, class: "btn btn-danger", id: "snek-delete"
+
+= render partial: 'form'

@@ -25,7 +25,7 @@ feature 'user creates a new snek', %{
     fill_in('Morph', with: 'Black')
     fill_in('Adoption Date', with: '08/16/2016')
 
-    click_on('Add snek')
+    click_on('Dat my snek!')
 
     expect(page).to have_content('Apophis')
     expect(page).to have_content('Sex: Female')
@@ -53,7 +53,7 @@ feature 'user creates a new snek', %{
 
     fill_in('Name', with: 'Apophis')
 
-    click_on('Add snek')
+    click_on('Dat my snek!')
 
     expect(page).to have_content('Apophis')
     expect(page).to have_content('Sex: ')

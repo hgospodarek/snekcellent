@@ -20,10 +20,20 @@ class SneksController < ApplicationController
     @snek = Snek.find(params[:id])
   end
 
+  def update
+    @snek = Snek.find(params[:id])
+    if @snek.update(snek_params)
+      redirect_to @snek, notice: "Snek succsessssfully updated."
+    else
+      redirect_to @snek, error: "Oh heck we fucked up."
+    end
+  end
+
   def destroy
     @snek = Snek.find(params[:id])
+    name = @snek.name
     @snek.destroy
-    redirect_to index, notice: "Removed :("
+    redirect_to index, notice: "#{name} removed :("
   end
 
   private

@@ -18,8 +18,7 @@ feature 'user deletes a snek', %{
     accept_confirm { click_on('Remove Snek') }
 
     expect(page).to have_content("Your Sneks")
-    expect(page).to have_content("Removed :(")
-    expect(page).to_not have_content(snek.name)
+    expect(page).to have_content("#{snek.name} removed :(")
   end
 
   scenario 'user does not confirm snek deletion and snek is not deleted', :js do
@@ -31,7 +30,7 @@ feature 'user deletes a snek', %{
     dismiss_confirm { click_on('Remove Snek') }
 
     expect(page).to_not have_content("Your Sneks")
-    expect(page).to_not have_content("Removed :(")
+    expect(page).to_not have_content("#{snek.name} removed :(")
     expect(page).to have_content(snek.name)
   end
 end
