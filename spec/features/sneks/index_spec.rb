@@ -7,11 +7,11 @@ feature 'user views the sneks index', %{
 } do
 
   # ACCEPTANCE CRITERIA
-  # [x] User with no sneks still sees add snek button
+  # [x] User with no sneks still sees Dat my snek! button
   # [x] All user sneks are listed in by name
   # [x] User cannot see other users' sneks
 
-  scenario 'user with no sneks still sees add snek button', :js do
+  scenario 'user with no sneks still sees Dat my snek! button', :js do
     dood = create(:user)
 
     login_as(dood)

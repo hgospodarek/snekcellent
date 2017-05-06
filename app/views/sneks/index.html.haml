@@ -11,50 +11,8 @@
               .card-title= snek.name
 .row
   .col-5.mb-3
-    .card.text-center.card-button#new-snek{ "data-toggle" => "modal", "data-target" => "#newSnekForm" }
+    .card.text-center.card-button#new-snek{ "data-toggle" => "modal", "data-target" => "#snekForm" }
       .card-block
         .card-title +1 Snek!
 
--# TODO: break this into a partial
-.modal.fade#newSnekForm{ "aria-hidden" => "true" }
-  .modal-dialog.modal-lg
-    .modal-content
-      = form_for @snek, url: { controller: "sneks", action: "create" } do |f|
-        .modal-header
-          %h5.modal-title
-            Tell me ’bout your snek
-          %button.close{ "type" => "button", "data-dismiss" => "modal", "aria-label" => "Close" }
-            %span{ "aria-hidden" => "true" } &times;
-        .modal-body
-          .form
-            .form-group
-              = f.label :name, { class: "form-control-label"}
-              = f.text_field :name, { class: "form-control", required: "true", oninvalid: "this.setCustomValidity('Name yer snek, dood.')"}
-
-              Sex
-              %br
-              %label.custom-control.custom-radio
-                %input.custom-control-input#snek_sex_male{ name: 'snek[sex]', value: 'Male', type: 'radio' }
-                %span.custom-control-indicator
-                %span.custom-control-description Male
-
-              %label.custom-control.custom-radio
-                %input.custom-control-input#snek_sex_female{ name: 'snek[sex]', value: 'Female', type: 'radio' }
-                %span.custom-control-indicator
-                %span.custom-control-description Female
-              %br
-              = f.label :age, { class: "form-control-label" }
-              = f.number_field :age, { class: "form-control" }
-
-              = f.label :species, { class: "form-control-label" }
-              = f.text_field :species, { class: "form-control" }
-
-              = f.label :morph, { class: "form-control-label" }
-              = f.text_field :morph, { class: "form-control" }
-
-              = f.label :adoption_date, 'Adoption Date', { class: "form-control-label" }
-              = f.date_field :adoption_date, { class: "form-control" }
-
-        .modal-footer
-          %button.btn.btn-secondary{ "data-dismiss" => "modal" } Close
-          = f.submit 'Add snek', { class: "btn btn-primary" }
+= render partial: 'form'
