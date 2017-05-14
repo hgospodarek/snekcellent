@@ -12,7 +12,7 @@ class SneksController < ApplicationController
     if @snek.save
       redirect_to @snek, notice: "#{@snek.name} succsessssfully created."
     else
-      redirect_back(fallback_location: sneks_path, flash: { error:  "Oh heck we fucked up. #{@snek.errors.full_messages.to_sentence}" })
+      redirect_back(fallback_location: sneks_path, flash: { error: "Oh heck we fucked up. #{@snek.errors.full_messages.to_sentence}" })
     end
   end
 
