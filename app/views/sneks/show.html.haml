@@ -1,14 +1,19 @@
-%h3.page-title.text-center= @snek.name
+.row
+  .col
+    %h3.page-title.text-center= @snek.name
+.row
+  .col
+    = image_tag @snek.avatar, { class: 'img-thumbnail avatar' }
+    %h5 Age
+    = "#{@snek.age}"
+    %h5= "Sex: #{@snek.sex}"
+    %h5= "Species: #{@snek.species}"
+    %h5= "Morph: #{@snek.morph}"
+    %h5= "Adoption Date: #{@snek.adoption_date}"
+.row
+  .col
+    %button.btn.btn-primary{ "data-toggle" => "modal", "data-target" => "#snekForm" } Edit Snek
 
-%h5 Age
-= "#{@snek.age}"
-%h5= "Sex: #{@snek.sex}"
-%h5= "Species: #{@snek.species}"
-%h5= "Morph: #{@snek.morph}"
-%h5= "Adoption Date: #{@snek.adoption_date}"
-
-%button.btn.btn-primary{ "data-toggle" => "modal", "data-target" => "#snekForm" } Edit Snek
-
-= link_to 'Remove Snek', snek_path(@snek), method: :delete, data: { confirm: "OH GAWD WHY? ARE YOU SURE? YOU CAN'T UNDO THIS, DOOD."}, class: "btn btn-danger", id: "snek-delete"
+    = link_to 'Remove Snek', snek_path(@snek), method: :delete, data: { confirm: "OH GAWD WHY? ARE YOU SURE? YOU CAN'T UNDO THIS, DOOD."}, class: "btn btn-danger", id: "snek-delete"
 
 = render partial: 'form'

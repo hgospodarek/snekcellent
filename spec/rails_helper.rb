@@ -76,10 +76,18 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+
+    # simulate a mobile device screen (But these numbers are a guess)
+    set_selenium_window_size(320, 760) if Capybara.current_driver == :selenium
   end
 
   config.after :each do
     Warden.test_reset!
     DatabaseCleaner.clean
   end
+end
+
+def set_selenium_window_size(width, height)
+  window = Capybara.current_session.driver.browser.manage.window
+  window.resize_to(width, height)
 end

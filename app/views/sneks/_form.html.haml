@@ -13,6 +13,34 @@
               = f.label :name, { class: "form-control-label"}
               = f.text_field :name, { class: "form-control", required: "true", oninvalid: "this.setCustomValidity('Name yer snek, dood.')"}
 
+              Sneaky Avatar
+              %br
+              -# trying to style this with bootstrap but fucking failng...
+
+              -# .fileinput.fileinput-new{ "data-provides" => "fileinput" }
+              -#   .fileinput-preview.thumbnail{ "data-trigger" => "fileinput", "style" => "width: 200px; height: 150px;" }
+              -#     %span.btn.btn-default.btn-file
+              -#       %span.fileinput-new
+              -#         Select image
+              -#         %span.fileinput-exists
+              -#           Change
+              -#           %input{ type: "file", name: "..." }
+              -#     %a.btn.btn-default.fileinput-exists{"href" => "#", "data-dismiss" => "fileinput" } Remove
+
+              -# %label.custom-file
+              -#   %input.custom-file-input#file{ name: 'snek[avatar]', type: 'file' }
+              -#   %span.custom-file-control
+
+              = f.file_field :avatar
+              - if f.object.avatar?
+                = image_tag f.object.avatar.thumb
+                = f.label :remove_avatar
+                = f.check_box :remove_avatar
+              = f.hidden_field :avatar_cache
+
+              -# %input.btn.btn-primary{type: 'file'}
+              %br
+
               Sex
               %br
               %label.custom-control.custom-radio

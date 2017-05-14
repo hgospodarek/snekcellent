@@ -1,6 +1,10 @@
-%h3.page-title Your Sneks
+.row
+  .col
+    %h3.page-title Your Sneks
 - if @sneks.empty?
-  %p You have no sneks!
+  .row
+    .col
+      %p You have no sneks!
 - else
   .row
     - @sneks.each do |snek|
@@ -15,4 +19,4 @@
       .card-block
         .card-title +1 Snek!
 
-= render partial: 'form'
+  = render partial: 'form'

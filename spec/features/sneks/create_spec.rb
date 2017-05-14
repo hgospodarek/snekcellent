@@ -9,6 +9,9 @@ feature 'user creates a new snek', %{
   # [x] user is redirected to new snek upon successful creation
   # [x] user must provide name
   # [x] age, sex, species, morph, and adoption date are optional
+  # [x] user can upload an avatar for their snek
+  # [x] user can only upload images as snek avatars
+  # [x] default avatar is provided if none is uploaded
 
   scenario 'user successfully creates snek and is brought to snek page', :js do
     dood = create(:user)
@@ -58,5 +61,52 @@ feature 'user creates a new snek', %{
     expect(page).to have_content('Apophis')
     expect(page).to have_content('Sex: ')
     expect(page).to have_content('Species: ')
+  end
+
+  scenario 'user uploads an avatar for their snek', :js do
+    dood = create(:user)
+    login_as(dood)
+    visit sneks_path
+
+    find('#new-snek').click
+
+    fill_in('Name', with: 'Apophis')
+    attach_file 'snek[avatar]', "#{Rails.root}/spec/support/images/snek_avatar.jpg"
+
+    click_on('Dat my snek!')
+
+    expect(page).to have_content('Apophis')
+    expect(page).to have_css("img[src*='snek_avatar.jpg']")
+  end
+
+  scenario 'user is only allowed to upload image file types as snek avatars', :js do
+    dood = create(:user)
+    login_as(dood)
+    visit sneks_path
+
+    find('#new-snek').click
+
+    fill_in('Name', with: 'Apophis')
+    attach_file 'snek[avatar]', "#{Rails.root}/spec/support/images/not_an_image.txt"
+
+    click_on('Dat my snek!')
+
+    expect(page).to_not have_content('Apophis')
+    expect(page).to have_content('You are not allowed to upload "txt" files')
+  end
+
+  scenario 'a default snek avatar is provided if user does not upload one', :js do
+    dood = create(:user)
+    login_as(dood)
+    visit sneks_path
+
+    find('#new-snek').click
+
+    fill_in('Name', with: 'Apophis')
+
+    click_on('Dat my snek!')
+
+    expect(page).to have_content('Apophis')
+    expect(page).to have_css("img[src*='fallback/default']")
   end
 end
