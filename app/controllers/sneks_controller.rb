@@ -12,7 +12,7 @@ class SneksController < ApplicationController
     if @snek.save
       redirect_to @snek, notice: "#{@snek.name} succsessssfully created."
     else
-      redirect_to :index, error: "Oh heck we fucked up."
+      redirect_back(fallback_location: sneks_path, flash: { error:  "Oh heck we fucked up. #{@snek.errors.full_messages.to_sentence}" })
     end
   end
 
@@ -39,6 +39,6 @@ class SneksController < ApplicationController
   private
 
   def snek_params
-    params.require(:snek).permit(:name, :sex, :age, :species, :morph, :adoption_date)
+    params.require(:snek).permit(:name, :avatar, :remove_avatar, :sex, :age, :species, :morph, :adoption_date)
   end
 end

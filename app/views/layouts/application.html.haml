@@ -19,7 +19,14 @@
           = flash[:notice]
       - if flash[:alert]
         .alert.alert-warning.alert-dismissable.fade.show
+          %button.close{ "aria-label" => "Close", "data-dismiss" => "alert", :type => "button" }
+            %span{ "aria-hidden" => "true" } &times;
           = flash[:alert]
+      - if flash[:error]
+        .alert.alert-danger.alert-dismissable.fade.show
+          %button.close{ "aria-label" => "Close", "data-dismiss" => "alert", :type => "button" }
+            %span{ "aria-hidden" => "true" } &times;
+          = flash[:error]
       = yield
     - if user_signed_in?
       %nav.navbar-light.bg-faded
