@@ -1,23 +1,27 @@
 ![Build Status](https://circleci.com/gh/hgospodarek/snekcellent.png?circle-token=:circle-token)
 ![Code Climate](https://codeclimate.com/github/hgospodarek/snekcellent.png)
 ![Coverage Status](https://coveralls.io/repos/hgospodarek/snekcellent/badge.png)
-# ==README for Future Me:
+# ==README:
 
 ## Snekcellent
-is a learning side-project so I can learn how to make a basic tracker and hopefully make it user-friendly AF to incorporate into my other shit.
 
-Also knowing that I have an animal that can fail silently is hecking scary, yo. Gonna track dat snek.
+- Rails 5
+- Postgres
+- Bootstrap
 
-Mai 1st __rails 5__ O_O _wooow_ such new.
+### Goals:
+- have a side project
+- track snake care and behavior because snakes aren't cats
+- try out Rails 5
+- try out a front end framework that's not Foundation
 
-__Postgres__ duh.
+### Long term:
+- iron out design of tracker/feed to incorporate into mead tracker and plant tracker
+- add React or Vue to this
 
-Probs gonna try __Bootstrap__ or somethin other than Foundation for dis.
-
-Focus __rails__ first then probs __React__ it up later cause I need a refresher.
 
 ## Do Stuff
-1. Clone dis `git@github.com:hgospodarek/snekcellent.git`
+1. Clone `git@github.com:hgospodarek/snekcellent.git`
 2. `cd snekcellent`
 3. `rake db:create`
 4. `rake db:migrate`
